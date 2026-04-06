@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seoul Weather</title>
+    <title>리얼 물리 로또 추첨기</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Seoul's Weather</h1>
-        <weather-card></weather-card>
+
+    <h1>🎰 REAL 물리 추첨기</h1>
+
+    <div class="machine-wrapper">
+        <div class="dome-container">
+            <canvas id="simCanvas" width="280" height="280"></canvas>
+            <div class="dome-glass-shade"></div>
+        </div>
+        <div class="machine-bottom"></div>
     </div>
+
+    <div class="tray" id="resultTray">
+        </div>
+
+    <button id="drawBtn" onclick="startDrawing()">추첨 시작!</button>
+
     <script src="main.js"></script>
 </body>
 </html>
