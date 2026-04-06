@@ -41,23 +41,28 @@ class MiniBall {
     update() {
         if (this.isExited) return;
 
+        // 중력 적용 (섞기 중에는 약하게, 평소에는 정상적으로)
+        const gravity = isMixing ? 0.1 : 0.2;
+        this.vy += gravity;
+
         if (isMixing) {
-            this.vx += (Math.random() - 0.5) * 2;
-            this.vy -= Math.random() * 3;
+            // 모든 방향으로 역동적인 무작위 힘 (강한 바람 효과)
+            this.vx += (Math.random() - 0.5) * 4;
+            this.vy += (Math.random() - 0.5) * 4;
             
-            const maxSpeed = 15;
+            // 속도 제한 (너무 빠르면 벽을 뚫고 나감)
+            const maxSpeed = 12;
             const speed = Math.sqrt(this.vx * this.vx + this.vy * this.vy);
             if (speed > maxSpeed) {
                 this.vx = (this.vx / speed) * maxSpeed;
                 this.vy = (this.vy / speed) * maxSpeed;
             }
-        } else {
-            this.vy += 0.2;
         }
 
         this.x += this.vx;
         this.y += this.vy;
         
+        // 마찰력/공기저항 (속도가 점차 줄어들게 함)
         this.vx *= this.friction;
         this.vy *= this.friction;
 
