@@ -1,1 +1,171 @@
-/* Add styles here */
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    background-image: radial-gradient(#ccc 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.container {
+    text-align: center;
+}
+
+weather-card {
+    display: block;
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Sunny animation */
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #ffc107;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+}
+
+.ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background-color: #ffc107;
+    transform-origin: 50% 0;
+    animation: spin 10s linear infinite;
+}
+
+.ray:nth-child(2) { transform: rotate(45deg); }
+.ray:nth-child(3) { transform: rotate(90deg); }
+.ray:nth-child(4) { transform: rotate(135deg); }
+.ray:nth-child(5) { transform: rotate(180deg); }
+.ray:nth-child(6) { transform: rotate(225deg); }
+.ray:nth-child(7) { transform: rotate(270deg); }
+.ray:nth-child(8) { transform: rotate(315deg); }
+
+/* Cloudy animation */
+.cloud {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    animation: drift 5s infinite linear;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud::after {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    right: 5px;
+}
+
+/* Rainy animation */
+.rain {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background-color: #007bff;
+    animation: fall 1s infinite linear;
+}
+
+.rain:nth-child(2) {
+    left: 20%;
+    animation-delay: -0.3s;
+}
+
+.rain:nth-child(3) {
+    left: 80%;
+    animation-delay: -0.6s;
+}
+
+
+/* Snowy animation */
+.snow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: fall 2s infinite linear;
+}
+
+.snow:nth-child(2) {
+    left: 20%;
+    animation-delay: -0.5s;
+}
+
+.snow:nth-child(3) {
+    left: 80%;
+    animation-delay: -1s;
+}
+
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes drift {
+    from { transform: translate(-60%, -50%); }
+    to { transform: translate(60%, -50%); }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
