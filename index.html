@@ -23,6 +23,23 @@
 
     <button id="drawBtn" onclick="startDrawing()">추첨 시작!</button>
 
+    <div class="contact-section">
+        <h2>🤝 제휴 문의</h2>
+        <p>함께 협력할 파트너를 찾고 있습니다. 아래 양식을 작성해 주세요.</p>
+        <form action="https://formspree.io/f/xojpread" method="POST" id="contactForm">
+            <div class="input-group">
+                <input type="text" name="name" placeholder="성함 / 회사명" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="이메일 주소" required>
+            </div>
+            <div class="input-group">
+                <textarea name="message" placeholder="문의 내용 (제휴 내용, 기간 등)" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">문의하기</button>
+        </form>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
