@@ -42,9 +42,41 @@
                 <!-- 결과 공이 여기에 표시됨 -->
             </div>
 
+            <div class="options-group">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="excludePastWinners" checked>
+                    <span class="checkmark"></span>
+                    역대 1등 당첨 조합 제외하기
+                </label>
+            </div>
+
             <div class="button-group">
                 <button id="drawBtn" onclick="startDrawing()">추첨 시작!</button>
             </div>
+        </section>
+
+        <!-- 신설: 역대 당첨 번호 이력 섹션 -->
+        <section id="history" class="content-section">
+            <div class="section-header">
+                <h2>📜 역대 1등 당첨 번호 이력</h2>
+                <div class="divider"></div>
+                <p>최근 회차별 당첨 번호 데이터입니다. (실시간 업데이트 반영)</p>
+            </div>
+            <div class="history-table-wrapper">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>회차</th>
+                            <th>당첨일</th>
+                            <th>당첨 번호</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <!-- 데이터는 JS에서 동적으로 삽입 -->
+                    </tbody>
+                </table>
+            </div>
+            <p class="history-note">* 1100회 이상의 전체 데이터는 추첨 시 내부적으로 비교 연산에 사용됩니다.</p>
         </section>
 
         <section id="how-it-works" class="content-section">
