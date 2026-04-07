@@ -30,28 +30,42 @@
 
     <main class="container">
         <section id="machine" class="machine-section">
-            <div class="machine-wrapper">
-                <div class="dome-container">
-                    <canvas id="simCanvas" width="280" height="280"></canvas>
-                    <div class="dome-glass-shade"></div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="kr">대한민국 로또</button>
+                <button class="tab-btn" data-tab="us">미국 파워볼</button>
+                <button class="tab-btn" data-tab="scratch">스피또 (스크래치)</button>
+            </div>
+
+            <!-- 로또 추첨기 컨테이너 -->
+            <div id="lotto-machine-container">
+                <div class="machine-wrapper">
+                    <div class="dome-container">
+                        <canvas id="simCanvas" width="280" height="280"></canvas>
+                        <div class="dome-glass-shade"></div>
+                    </div>
+                    <div class="machine-bottom"></div>
                 </div>
-                <div class="machine-bottom"></div>
+
+                <div class="tray" id="resultTray">
+                    <!-- 결과 공이 여기에 표시됨 -->
+                </div>
+
+                <div class="options-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="excludePastWinners" checked>
+                        <span class="checkmark"></span>
+                        역대 1등 당첨 조합 제외하기
+                    </label>
+                </div>
+
+                <div class="button-group">
+                    <button id="drawBtn" onclick="startDrawing()">추첨 시작!</button>
+                </div>
             </div>
 
-            <div class="tray" id="resultTray">
-                <!-- 결과 공이 여기에 표시됨 -->
-            </div>
-
-            <div class="options-group">
-                <label class="checkbox-container">
-                    <input type="checkbox" id="excludePastWinners" checked>
-                    <span class="checkmark"></span>
-                    역대 1등 당첨 조합 제외하기
-                </label>
-            </div>
-
-            <div class="button-group">
-                <button id="drawBtn" onclick="startDrawing()">추첨 시작!</button>
+            <!-- 스크래치 카드 컨테이너 -->
+            <div id="scratch-container" style="display: none;">
+                <!-- JS에서 동적으로 삽입 -->
             </div>
         </section>
 
@@ -153,6 +167,6 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>
